@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine Proposal 💖</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 80vw;
+            height: 70vh;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            position: relative;
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 50px;
+            font-size: 48px;
+        }
+
+        button {
+            padding: 16px 40px;
+            font-size: 22px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        #yes {
+            background-color: #e91e63;
+            color: white;
+            left: 40%;
+            top: 55%;
+            transition: transform 0.3s;
+        }
+
+        #yes:hover {
+            transform: scale(1.2);
+        }
+
+        #no {
+            background-color: #9e9e9e;
+            color: white;
+            left: 55%;
+            top: 55%;
+            transition: 0.05s;
+        }
+
+        .love-message {
+            display: none;
+            margin-top: 40px;
+            font-size: 36px;
+            color: #e91e63;
+            font-style: italic;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Will you be my Valentine? 💘</h1>
+
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 😒</button>
+
+    <div class="love-message" id="loveText">
+        I Love You ❤️ Forever & Always 💕
+               My dear Eshwar...
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const loveText = document.getElementById("loveText");
+
+    function moveNoButton() {
+        const container = document.querySelector(".container");
+
+        const maxX = container.clientWidth - noBtn.offsetWidth;
+        const maxY = container.clientHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+    }
+
+    noBtn.addEventListener("mouseover", moveNoButton);
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+    yesBtn.addEventListener("click", () => {
+        loveText.style.display = "block";
+        noBtn.style.display = "none";
+        yesBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
